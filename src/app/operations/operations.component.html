@@ -1,0 +1,24 @@
+<div style="padding-top:.5cm">
+  <nav class="navbar ">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link " [class.active]="this.activeTab=='drawings'" (click)="onTabClick('drawings')" href=# >Drawings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="this.activeTab=='procedures'" (click)="onTabClick('procedures')" href=# >Procedures</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="this.activeTab=='manuals'" (click)="onTabClick('manuals')" href=# >Manuals</a>
+        </li>
+      </ul>
+  </nav>
+</div>
+
+<div [ngSwitch]="this.activeTab">
+
+  <app-drawings *ngSwitchCase="'drawings'"></app-drawings>
+  <app-procedures *ngSwitchCase="'procedures'"></app-procedures>
+  <app-manuals *ngSwitchCase="'manuals'"></app-manuals>
+
+</div>
+

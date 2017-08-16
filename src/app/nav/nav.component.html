@@ -1,0 +1,17 @@
+
+<md-toolbar color="primary">
+  <h2> <img src="../../assets/Main_Logo_Global_Mobile_White.png" > CMMS </h2>
+  <span class="fill-remaining-space"></span>
+  <button md-icon-button mdTooltip="Asset List" mdTooltipPosition="left" (click)="onNavClick('assets')"><md-icon>list</md-icon></button>
+  <button md-icon-button mdTooltip="Reports" mdTooltipPosition="left" (click)="onNavClick('dashboard')"><md-icon>description</md-icon></button>
+  <button md-icon-button><md-icon>account_circle</md-icon></button>
+</md-toolbar>
+
+
+
+<div [ngSwitch]="this.activePage">
+
+  <app-dashboard *ngSwitchCase="'dashboard'"></app-dashboard>
+  <app-assets *ngSwitchCase="'assets'"></app-assets>
+
+</div>

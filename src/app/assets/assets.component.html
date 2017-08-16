@@ -1,0 +1,64 @@
+<h2>
+  Assets
+</h2>
+
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <md-input-container floatPlaceholder="never">
+      <input mdInput #filter placeholder="Filter users">
+    </md-input-container>
+  </div>
+
+  <md-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container cdkColumnDef="userId">
+      <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container cdkColumnDef="progress">
+      <md-header-cell *cdkHeaderCellDef> Progress </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.progress}}% </md-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container cdkColumnDef="userName">
+      <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container cdkColumnDef="color">
+      <md-header-cell *cdkHeaderCellDef> Color </md-header-cell>
+      <md-cell *cdkCellDef="let row" [style.color]="row.color"> {{row.color}} </md-cell>
+    </ng-container>
+
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+</div>
+
+<!--
+<ul class="assets">
+  <li *ngFor="let asset of assets"
+    [class.selected]="asset === selectedAsset"
+    (click)="onSelect(asset)">
+    <span>{{asset.description}}</span>
+  </li>
+</ul>
+
+<div *ngIf="selectedAsset">
+  <label>ID:</label> <input [(ngModel)]=selectedAsset.id placeholder="ID"/>
+  <label>Description:</label> <input [(ngModel)]="selectedAsset.description" placeholder="Description"/>
+  <label>Model:</label> <input [(ngModel)]="selectedAsset.model" placeholder="Model"/>
+</div>
+
+<div>
+  <button (click)="gotoNew();"> New </button>
+</div>
+-->
